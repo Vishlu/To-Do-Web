@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+
+
+
+    <h1 align="center">HOME PAGE</h1>
+    {% block content_one %} {% endblock content_one %}
+    {% block content_two %} {% endblock content_two %}
+    {% block content_three %} {% endblock content_three %}
+
+    <script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'app/js/jquery.js' %}"></script>
+    <script src="{% static 'app/js/poper.js' %}"></script>
+</body>
+
+</html>

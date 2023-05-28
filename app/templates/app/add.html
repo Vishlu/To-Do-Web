@@ -1,0 +1,50 @@
+{% extends 'app/base.html' %} {% block title %} AddShow {% endblock title %}
+{% block content_one %}
+
+<h4 align="center">Add New User</h4>
+
+<br><br>
+<center>
+
+
+    <form action="" method="POST" novalidate>
+        {% csrf_token %} {{form.as_p}}
+        <input type="submit" value="Add" />
+    </form>
+    <br />
+    <br />
+    <a href="{% url 'show' %}">Data Table</a>
+</center>
+
+<div>
+    <form action="" method="POST" novalidate>
+        {% csrf_token %} {% if disp %}
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">PASSWORD</th>
+                    <th scope="col">ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in disp %}
+                <tr>
+                    <th scope="row">{{d.id}}</th>
+                    <td>{{d.name}}</td>
+                    <td>{{d.email}}</td>
+                    <td>{{d.password}}</td>
+                    <td><a href="{% url 'delete' d.id %}">Delete</a></td>
+                    <td><a href="{% url 'update' d.id %}">Update</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% else %} no data {% endif %}
+    </form>
+</div> 
+{% endblock content_one %}

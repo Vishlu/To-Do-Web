@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %} {% block title %} Update {% endblock title %} 
+{% block content_two %}
+<h4 align="center">Update User</h4>
+
+<center>
+  <br><br>
+  <form action="" method="POST" align="center">
+    {% csrf_token %} {{form.as_p}}
+    <input type="submit" value="Update" />
+    &nbsp;&nbsp;
+    <a href="{% url 'show' %}">Back to table</a>
+  </form>
+</center>
+{% endblock content_two %}

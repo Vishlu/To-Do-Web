@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %} {% block title %} Table {% endblock title %} 
+{% block content_three %}
+<h1 align="center">TABLE DATA</h1>
+<center>
+  <a href="{% url 'add' %}">Back to HOME</a>
+  <div>
+    {% if disp %}
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">NAME</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">PASSWORD</th>
+          <th scope="col">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in disp %}
+        <tr>
+          <th scope="row">{{d.id}}</th>
+          <td>{{d.name}}</td>
+          <td>{{d.email}}</td>
+          <td>{{d.password}}</td>
+          <td><a href="{% url 'delete' d.id %}">Delete</a></td>
+          <td><a href="{% url 'update' d.id %}">Update</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% else %} no data {% endif %}
+  </div>
+</center>
+{% endblock content_three %}
